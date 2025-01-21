@@ -1,13 +1,13 @@
 import dedent from "dedent";
 
 // Suffix used to mark wrapped entry chunks
-const WRAPPER_SUFFIX = "?render-jsx-dom";
+const WRAPPER_SUFFIX = "?rollup-plugin-automount-dom";
 
 export default function() {
   // Wraps entry chunks to invoke the default function and append to DOM
   // Based on: https://rollupjs.org/plugin-development/#resolveid
   return {
-    name: "render-jsx-dom",
+    name: "rollup-plugin-automount-dom",
 
     // Rewrite entry point ID's to add WRAPPER_SUFFIX if not already present.
     // Use "later" resolvers to handle resolve the wrapped ID.
