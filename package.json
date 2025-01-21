@@ -1,0 +1,21 @@
+{
+  "author": "Dan Egnor <egnor@ofb.net>",
+  "bugs": {
+    "url": "https://github.com/egnor/rollup-plugin-automount-dom/issues"
+  },
+  "dependencies": {
+    "dedent": "^1.5.3"
+  },
+  "description": "Simple plugin for Rollup (rollupjs.org) to auto-append DOM components to the HTML document",
+  "homepage": "https://github.com/egnor/rollup-plugin-automount-dom#readme",
+  "license": "MIT",
+  "keywords": [ "rollup", "plugin", "jsx", "mdx", "dom" ],
+  "main": "index.js",
+  "name": "rollup-plugin-automount-dom",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egnor/rollup-plugin-automount-dom.git"
+  },
+  "type": "module",
+  "version": "1.0.0"
+}
