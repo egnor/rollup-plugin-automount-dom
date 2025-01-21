@@ -25,12 +25,12 @@ Nevertheless, some of us do find the "vanilla MDX/JSX approach" a nice balance b
 ## Details
 
 Add this module:
-```
-# npm i rollup-plugin-automount-dom
+```bash
+$ npm i rollup-plugin-automount-dom
 ```
 
 Configure Rollup to use it, in `rollup.config.js` or equivalent:
-```
+```js
 import rollupAutomountDOM from "rollup-plugin-automount-dom";
 ...
 export default {
@@ -44,3 +44,46 @@ export default {
 ```
 
 At present the plugin has no arguments and no configuration, and the wrapper behavior is trivial. PRs are welcome for other features that might be helpful, keeping in mind that anything particularly idiosyncratic might be better handled with an entirely custom plugin (or template for `plugin-html`, etc).
+
+## Minimal example
+
+Use this `rollup.config.mjs`
+
+```js
+import fg from "fast-glob";
+import rollupAutomountDOM from "rollup-plugin-automount-dom";
+import rollupHTML from "@rollup/plugin-html";
+import rollupMDX from "@mdx-js/rollup";
+import { nodeResolve as rollupNodeResolve } from "@rollup/plugin-node-resolve";
+
+export default fg.sync("*.mdx").map((input) => ({
+  input,
+  jsx: { mode: "automatic", jsxImportSource: "jsx-dom" },
+  output: { directory: "dist", format: "iife" },
+  plugins: [
+    rollupAutomountDOM(),
+    rollupHTML({ fileName: input.replace(/mdx$/, "html"), title: "" }),
+    rollupMDX({ jsxImportSource: "jsx-dom" }),
+    rollupNodeResolve(),
+  ],
+}));
+```
+
+And this `hello.mdx`
+
+```md
+# Hello World!
+
+Lorem ipsum etc etc.
+```
+
+And then run
+
+```bash
+npm i fast-glob jsx-dom @mdx-js/rollup rollup rollup-plugin-automount-dom @rollup/plugin-html @rollup/plugin-node-resolve
+npx rollup -c
+```
+
+And finally load `dist/hello.html` in your browser and you should see something like this
+
+![image](https://github.com/user-attachments/assets/5e5ef507-c175-44ec-8318-111a62f9fdd1)
