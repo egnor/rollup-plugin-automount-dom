@@ -22,7 +22,7 @@ However, please note these important caveats!
 
 Nevertheless, some of us do find the "vanilla MDX/JSX approach" a nice balance between the tedious repetition of raw HTML and the all-encompassing paradigm layer cakes of web frameworks. Your mileage will almost certainly vary.
 
-## Details
+## Usage
 
 Add this module:
 ```bash
