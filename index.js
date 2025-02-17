@@ -7,7 +7,7 @@ export default function rollupAutomountDOM() {
   // Wraps entry chunks to invoke the default function and append to DOM
   // Based on: https://rollupjs.org/plugin-development/#resolveid
   return {
-    name: "automount-dom",
+    name: "automount-dom";
 
     // Rewrite entry point ID's to add WRAPPER_SUFFIX if not already present.
     // Use "later" resolvers to handle resolve the wrapped ID.

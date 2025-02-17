@@ -17,5 +17,5 @@
     "url": "git+https://github.com/egnor/rollup-plugin-automount-dom.git"
   },
   "type": "module",
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
